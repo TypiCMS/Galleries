@@ -35,8 +35,13 @@ class ModuleProvider extends ServiceProvider
 
         // Add dirs
         View::addLocation(__DIR__ . '/../Views');
-        Lang::addNamespace('galleries', __DIR__ . '/../lang');
-        Config::addNamespace('galleries', __DIR__ . '/../config');
+        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'galleries');
+        $this->publishes([
+            __DIR__ . '/../config/' => config_path('typicms/galleries'),
+        ], 'config');
+        $this->publishes([
+            __DIR__ . '/../migrations/' => base_path('/database/migrations'),
+        ], 'migrations');
 
         // Observers
         GalleryTranslation::observe(new SlugObserver);
@@ -68,10 +73,5 @@ class ModuleProvider extends ServiceProvider
                 $app->make('TypiCMS\Modules\Galleries\Repositories\GalleryInterface')
             );
         });
-
-        $app->before(function ($request, $response) {
-            require __DIR__ . '/../breadcrumbs.php';
-        });
-
     }
 }
