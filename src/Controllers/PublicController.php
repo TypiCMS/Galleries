@@ -35,7 +35,8 @@ class PublicController extends BasePublicController
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
-        return view('galleries.public.index')->withModels($models);
+        return view('galleries::public.index')
+            ->with(compact('models'));
     }
 
     /**
@@ -51,7 +52,7 @@ class PublicController extends BasePublicController
 
         $this->title['parent'] = $model->title;
 
-        return view('galleries.public.show')
-            ->withModel($model);
+        return view('galleries::public.show')
+            ->with(compact('model'));
     }
 }

@@ -21,9 +21,6 @@ class ModuleProvider extends ServiceProvider
 
     public function boot()
     {
-        // Bring in the routes
-        require __DIR__ . '/../routes.php';
-
         // Add dirs
         View::addNamespace('galleries', __DIR__ . '/../views/');
         $this->loadTranslationsFrom(__DIR__ . '/../lang', 'galleries');
@@ -47,6 +44,11 @@ class ModuleProvider extends ServiceProvider
     {
 
         $app = $this->app;
+
+        /**
+         * Register route service provider
+         */
+        $app->register('TypiCMS\Modules\Galleries\Providers\RouteServiceProvider');
 
         /**
          * Sidebar view composer

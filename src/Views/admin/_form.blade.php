@@ -29,7 +29,7 @@
         <div class="form-group @if($errors->has('name'))has-error @endif">
             {{ Form::label('name', trans('validation.attributes.name'), array('class' => 'control-label')) }}
             {{ Form::text('name', null, array('class' => 'form-control')) }}
-            {{ $errors->first('name', '<p class="help-block">:message</p>') }}
+            {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
         </div>
 
 
@@ -51,7 +51,7 @@
                             <button class="btn btn-default btn-slug @if($errors->has($lang.'.slug'))btn-danger @endif" type="button">@lang('validation.attributes.generate')</button>
                         </span>
                     </div>
-                    {{ $errors->first($lang.'.slug', '<p class="help-block">:message</p>') }}
+                    {!! $errors->first($lang.'.slug', '<p class="help-block">:message</p>') !!}
                 </div>
                 {!! BootForm::checkbox(trans('labels.online'), $lang.'[status]') !!}
                 {!! BootForm::textarea(trans('labels.body'), $lang.'[body]')->addClass('editor') !!}
