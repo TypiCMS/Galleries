@@ -1,29 +1,20 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Providers;
 
-use Lang;
-use View;
 use Config;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Foundation\Application;
-
-// Models
+use Illuminate\Support\ServiceProvider;
+use Lang;
 use TypiCMS\Modules\Galleries\Models\Gallery;
 use TypiCMS\Modules\Galleries\Models\GalleryTranslation;
-
-// Repo
-use TypiCMS\Modules\Galleries\Repositories\EloquentGallery;
-
-// Cache
 use TypiCMS\Modules\Galleries\Repositories\CacheDecorator;
-use TypiCMS\Services\Cache\LaravelCache;
-
-// Form
+use TypiCMS\Modules\Galleries\Repositories\EloquentGallery;
 use TypiCMS\Modules\Galleries\Services\Form\GalleryForm;
 use TypiCMS\Modules\Galleries\Services\Form\GalleryFormLaravelValidator;
-
-// Observers
 use TypiCMS\Observers\SlugObserver;
+use TypiCMS\Services\Cache\LaravelCache;
+use View;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -34,7 +25,7 @@ class ModuleProvider extends ServiceProvider
         require __DIR__ . '/../routes.php';
 
         // Add dirs
-        View::addLocation(__DIR__ . '/../Views');
+        View::addNamespace('galleries', __DIR__ . '/../views/');
         $this->loadTranslationsFrom(__DIR__ . '/../lang', 'galleries');
         $this->publishes([
             __DIR__ . '/../config/' => config_path('typicms/galleries'),
@@ -42,6 +33,11 @@ class ModuleProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../migrations/' => base_path('/database/migrations'),
         ], 'migrations');
+
+        AliasLoader::getInstance()->alias(
+            'Galleries',
+            'TypiCMS\Modules\Galleries\Facades\Facade'
+        );
 
         // Observers
         GalleryTranslation::observe(new SlugObserver);

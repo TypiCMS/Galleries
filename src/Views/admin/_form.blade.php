@@ -1,6 +1,6 @@
 @section('js')
-    {{ HTML::script(asset('//tinymce.cachefly.net/4.1/tinymce.min.js')) }}
-    {{ HTML::script(asset('js/admin/form.js')) }}
+    <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+    <script src="{{ asset('js/admin/form.js') }}"></script>
 @stop
 
 @section('otherSideLink')
@@ -10,7 +10,7 @@
 
 @include('core::admin._buttons-form')
 
-{{ BootForm::hidden('id'); }}
+{!! BootForm::hidden('id') !!}
 
 <ul class="nav nav-tabs">
     <li class="@if (input::get('tab') != 'tab-files')active @endif">
@@ -53,8 +53,8 @@
                     </div>
                     {{ $errors->first($lang.'.slug', '<p class="help-block">:message</p>') }}
                 </div>
-                {{ BootForm::checkbox(trans('labels.online'), $lang.'[status]') }}
-                {{ BootForm::textarea(trans('labels.body'), $lang.'[body]')->addClass('editor') }}
+                {!! BootForm::checkbox(trans('labels.online'), $lang.'[status]') !!}
+                {!! BootForm::textarea(trans('labels.body'), $lang.'[body]')->addClass('editor') !!}
             </div>
 
             @endforeach
