@@ -1,6 +1,8 @@
+@extends('core::public.master')
+
 @section('main')
 
-    <h2>{{ Str::title(trans_choice('galleries::global.galleries', 2)) }}</h2>
+    <h2>{{ Illuminate\Support\Str::title(trans_choice('galleries::global.galleries', 2)) }}</h2>
 
     @if ($models->count())
     <ul>
@@ -14,6 +16,6 @@
     </ul>
     @endif
 
-    {{ $models->appends(Input::except('page'))->links() }}
+    {!! $models->appends(Input::except('page'))->render() !!}
 
 @stop

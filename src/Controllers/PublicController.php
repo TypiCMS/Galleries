@@ -1,14 +1,13 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Controllers;
 
+use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Support\Str;
-use View;
 use Input;
-use Config;
-use Paginator;
 use TypiCMS;
-use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
 use TypiCMS\Controllers\BasePublicController;
+use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
+use View;
 
 class PublicController extends BasePublicController
 {
@@ -29,11 +28,11 @@ class PublicController extends BasePublicController
         TypiCMS::setModel($this->repository->getModel());
 
         $page = Input::get('page');
-        $itemsPerPage = Config::get('galleries::public.itemsPerPage');
+        $perPage = config('typicms.galleries.per_page');
 
-        $data = $this->repository->byPage($page, $itemsPerPage, array('translations'));
+        $data = $this->repository->byPage($page, $perPage, ['translations']);
 
-        $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
+        $models = new Paginator($data->items, $data->totalItems, $perPage, null, ['path' => Paginator::resolveCurrentPath()]);
 
         return view('galleries::public.index')
             ->with(compact('models'));

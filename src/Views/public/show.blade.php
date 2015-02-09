@@ -1,3 +1,5 @@
+@extends('core::public.master')
+
 @section('main')
 
     @include('galleries.public._slider')

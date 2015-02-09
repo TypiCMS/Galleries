@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Composers;
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\View\View;
 
 class SidebarViewComposer
@@ -9,7 +8,7 @@ class SidebarViewComposer
     public function compose(View $view)
     {
         $view->menus['media']->put('galleries', [
-            'weight' => Config::get('galleries::admin.weight'),
+            'weight' => config('typicms.galleries.sidebar.weight'),
             'request' => $view->prefix . '/galleries*',
             'route' => 'admin.galleries.index',
             'icon-class' => 'icon fa fa-fw fa-photo',
