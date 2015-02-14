@@ -1,9 +1,9 @@
 <?php
-namespace TypiCMS\Modules\Galleries\Controllers;
+namespace TypiCMS\Modules\Galleries\Http\Controllers;
 
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
 use TypiCMS\Modules\Galleries\Services\Form\GalleryForm;
-use TypiCMS\Controllers\AdminSimpleController;
+use TypiCMS\Http\Controllers\AdminSimpleController;
 
 class AdminController extends AdminSimpleController
 {
