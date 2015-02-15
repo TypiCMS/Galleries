@@ -10,8 +10,6 @@ use TypiCMS\Modules\Galleries\Models\Gallery;
 use TypiCMS\Modules\Galleries\Models\GalleryTranslation;
 use TypiCMS\Modules\Galleries\Repositories\CacheDecorator;
 use TypiCMS\Modules\Galleries\Repositories\EloquentGallery;
-use TypiCMS\Modules\Galleries\Services\Form\GalleryForm;
-use TypiCMS\Modules\Galleries\Services\Form\GalleryFormLaravelValidator;
 use TypiCMS\Observers\SlugObserver;
 use TypiCMS\Services\Cache\LaravelCache;
 use View;
@@ -65,11 +63,5 @@ class ModuleProvider extends ServiceProvider
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Galleries\Services\Form\GalleryForm', function (Application $app) {
-            return new GalleryForm(
-                new GalleryFormLaravelValidator($app['validator']),
-                $app->make('TypiCMS\Modules\Galleries\Repositories\GalleryInterface')
-            );
-        });
     }
 }

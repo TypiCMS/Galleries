@@ -1,16 +1,40 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Http\Controllers;
 
+use TypiCMS\Modules\Galleries\Http\Requests\FormRequest;
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
-use TypiCMS\Modules\Galleries\Services\Form\GalleryForm;
 use TypiCMS\Http\Controllers\AdminSimpleController;
 
 class AdminController extends AdminSimpleController
 {
 
-    public function __construct(GalleryInterface $gallery, GalleryForm $galleryform)
+    public function __construct(GalleryInterface $gallery)
     {
-        parent::__construct($gallery, $galleryform);
-        $this->title['parent'] = trans_choice('galleries::global.galleries', 2);
+        parent::__construct($gallery);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  FormRequest $request
+     * @return Redirect
+     */
+    public function store(FormRequest $request)
+    {
+        $model = $this->repository->create($request->all());
+        return $this->redirect($request, $model);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  $model
+     * @param  FormRequest $request
+     * @return Redirect
+     */
+    public function update($model, FormRequest $request)
+    {
+        $this->repository->update($request->all());
+        return $this->redirect($request, $model);
     }
 }
