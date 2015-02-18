@@ -4,6 +4,6 @@
         <h3>{{ $gallery->title }}</h3>
         @endif
         {!! $gallery->body !!}
-        @include('galleries.public._thumbs', ['model' => $gallery])
+        @include('galleries::public._thumbs', ['model' => $gallery])
     </div>
     @endforeach
