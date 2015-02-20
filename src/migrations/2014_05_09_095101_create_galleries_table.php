@@ -34,6 +34,7 @@ class CreateGalleriesTable extends Migration
             $table->string('title');
             $table->string('slug')->nullable();
 
+            $table->text('summary');
             $table->text('body');
 
             $table->timestamps();

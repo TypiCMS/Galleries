@@ -1,8 +1,11 @@
 @extends('core::public.master')
 
+@section('title', trans('galleries::global.name') . ' – ' . $websiteTitle)
+@section('ogTitle', trans('galleries::global.name'))
+
 @section('main')
 
-    <h2>{{ Illuminate\Support\Str::title(trans_choice('galleries::global.galleries', 2)) }}</h2>
+    <h2>@lang('galleries::global.name')</h2>
 
     @if ($models->count())
     <ul>

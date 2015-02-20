@@ -21,6 +21,7 @@ class Gallery extends Base
         'title',
         'slug',
         'status',
+        'summary',
         'body',
     );
 
@@ -33,6 +34,7 @@ class Gallery extends Base
         'title',
         'slug',
         'status',
+        'summary',
         'body',
     );
 

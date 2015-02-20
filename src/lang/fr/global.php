@@ -1,6 +1,6 @@
 <?php
 return array(
-    'name' => 'galeries',
+    'name' => 'Galeries',
     'galleries' => 'galerie|galeries',
     'New'  => 'Nouvelle galerie',
     'Edit' => 'Modifier la galerie',
