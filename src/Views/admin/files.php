@@ -20,7 +20,7 @@
                     <th class="edit"></th>
                     <th st-sort="image" class="image st-sort" translate>Image</th>
                     <th st-sort="position" st-sort-default class="position st-sort" translate>Position</th>
-                    <th st-sort="filename" class="title st-sort" translate>Filename</th>
+                    <th st-sort="file" class="title st-sort" translate>Filename</th>
                     <th st-sort="alt_attribute" class="selected st-sort">Alt attribute</th>
                     <th st-sort="width" class="width st-sort" translate>Width</th>
                     <th st-sort="height" class="width st-sort" translate>Height</th>
@@ -40,13 +40,13 @@
 
             <tbody>
                 <tr ng-repeat="model in displayedModels">
-                    <td><typi-btn-delete ng-click="delete(model, model.filename)"></typi-btn-delete></td>
+                    <td><typi-btn-delete ng-click="delete(model, model.file)"></typi-btn-delete></td>
                     <td typi-btn-edit></td>
                     <td typi-thumb-list-item></td>
                     <td>
                         <input class="form-control input-sm" min="1" type="number" value="{{ model.position }}" name="position" ng-model="model.position" ng-change="update(model)">
                     </td>
-                    <td>{{ model.filename }}</td>
+                    <td>{{ model.file }}</td>
                     <td contentEditable highlighter="model.alt_attribute" ng-model="model.alt_attribute" ng-blur="update(model)">
                         {{ model.alt_attribute }}
                     </td>
