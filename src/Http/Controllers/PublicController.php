@@ -15,7 +15,6 @@ class PublicController extends BasePublicController
     public function __construct(GalleryInterface $gallery)
     {
         parent::__construct($gallery);
-        $this->title['parent'] = Str::title(trans_choice('galleries::global.galleries', 2));
     }
 
     /**
@@ -48,8 +47,6 @@ class PublicController extends BasePublicController
         $model = $this->repository->bySlug($slug, ['translations', 'files', 'files.translations']);
 
         TypiCMS::setModel($model);
-
-        $this->title['parent'] = $model->title;
 
         return view('galleries::public.show')
             ->with(compact('model'));
