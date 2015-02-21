@@ -3,9 +3,9 @@ namespace TypiCMS\Modules\Galleries\Http\Controllers;
 
 use TypiCMS\Modules\Galleries\Http\Requests\FormRequest;
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
-use TypiCMS\Http\Controllers\AdminSimpleController;
+use TypiCMS\Http\Controllers\BaseAdminController;
 
-class AdminController extends AdminSimpleController
+class AdminController extends BaseAdminController
 {
 
     public function __construct(GalleryInterface $gallery)
