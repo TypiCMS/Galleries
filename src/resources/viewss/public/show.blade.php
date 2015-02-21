@@ -7,7 +7,7 @@
 
 @section('main')
 
-    @include('galleries.public._slider')
+    @include('galleries::public._slider')
 
     <article>
         <h2>{{ $model->title }}</h2>
@@ -15,6 +15,6 @@
         <div class="body">{!! $model->body !!}</div>
     </article>
 
-    @include('galleries.public._thumbs')
+    @include('galleries::public._thumbs')
 
 @stop

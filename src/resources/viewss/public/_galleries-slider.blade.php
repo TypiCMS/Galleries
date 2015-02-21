@@ -3,5 +3,5 @@
     <h3>{{ $gallery->title }}</h3>
     @endif
     {{ $gallery->body }}
-    @include('galleries.public._slider', ['model' => $gallery])
+    @include('galleries::public._slider', ['model' => $gallery])
 @endforeach
