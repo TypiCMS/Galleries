@@ -2,6 +2,7 @@
 
 @section('title', trans('galleries::global.name') . ' – ' . $websiteTitle)
 @section('ogTitle', trans('galleries::global.name'))
+@section('bodyClass', 'body-galleries')
 
 @section('main')
 
