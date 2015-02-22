@@ -3,15 +3,11 @@ use TypiCMS\Modules\Galleries\Models\Gallery;
 
 class GalleriesControllerTest extends TestCase
 {
-    public function tearDown()
-    {
-        Mockery::close();
-    }
 
     public function testAdminIndex()
     {
-        $this->get('admin/galleries');
-        $this->assertTrue($this->client->getResponse()->isOk());
+        $response = $this->call('GET', 'admin/galleries');
+        $this->assertEquals(200, $response->getStatusCode());
     }
 
     public function testStoreFails()
