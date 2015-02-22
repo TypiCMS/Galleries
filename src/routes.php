@@ -8,7 +8,7 @@ Route::bind('galleries', function ($value) {
 if (! App::runningInConsole()) {
     Route::group(
         array(
-            'before'    => 'visitor.publicAccess',
+            'before'    => 'visitorHasPublicAccess',
             'namespace' => 'TypiCMS\Modules\Galleries\Http\Controllers',
         ),
         function () {
