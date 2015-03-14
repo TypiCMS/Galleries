@@ -19,7 +19,7 @@
                     <th class="delete"></th>
                     <th class="edit"></th>
                     <th st-sort="image" class="image st-sort" translate>Image</th>
-                    <th st-sort="position" st-sort-default class="position st-sort" translate>Position</th>
+                    <th st-sort="position" st-sort-default="true" class="position st-sort" translate>Position</th>
                     <th st-sort="file" class="title st-sort" translate>Filename</th>
                     <th st-sort="alt_attribute" class="selected st-sort">Alt attribute</th>
                     <th st-sort="width" class="width st-sort" translate>Width</th>

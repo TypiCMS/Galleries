@@ -15,7 +15,7 @@
                     <th class="delete"></th>
                     <th class="edit"></th>
                     <th st-sort="status" class="status st-sort" translate>Status</th>
-                    <th st-sort="name" st-sort-default class="name st-sort" translate>Name</th>
+                    <th st-sort="name" st-sort-default="true" class="name st-sort" translate>Name</th>
                     <th st-sort="title" class="title st-sort" translate>Title</th>
                     <th st-sort="files_count" class="files_count st-sort" translate>Files</th>
                 </tr>
