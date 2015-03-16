@@ -63,7 +63,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Galleries\Repositories\GalleryInterface', function (Application $app) {
             $repository = new EloquentGallery(new Gallery);
-            if (! Config::get('app.cache')) {
+            if (! config('typicms.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], ['galleries', 'files'], 10);
