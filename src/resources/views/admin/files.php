@@ -18,7 +18,7 @@
                 <tr>
                     <th class="delete"></th>
                     <th class="edit"></th>
-                    <th st-sort="image" class="image st-sort" translate>Image</th>
+                    <th class="image" translate>Image</th>
                     <th st-sort="position" st-sort-default="true" class="position st-sort" translate>Position</th>
                     <th st-sort="file" class="title st-sort" translate>Filename</th>
                     <th st-sort="alt_attribute" class="selected st-sort">Alt attribute</th>
@@ -28,10 +28,10 @@
                 <tr>
                     <td colspan="4"></td>
                     <td>
-                        <input st-search="'title'" class="form-control input-sm" placeholder="{{ 'Search' | translate }}…" type="text">
+                        <input st-search="title" class="form-control input-sm" placeholder="{{ 'Search' | translate }}…" type="text">
                     </td>
                     <td>
-                        <input st-search="'alt_attribute'" class="form-control input-sm" placeholder="{{ 'Search' | translate }}…" type="text">
+                        <input st-search="alt_attribute" class="form-control input-sm" placeholder="{{ 'Search' | translate }}…" type="text">
                     </td>
                     <td></td>
                     <td></td>
@@ -42,7 +42,10 @@
                 <tr ng-repeat="model in displayedModels">
                     <td><typi-btn-delete ng-click="delete(model, model.file)"></typi-btn-delete></td>
                     <td typi-btn-edit></td>
-                    <td typi-thumb-list-item></td>
+                    <td ng-switch="model.type">
+                        <img ng-switch-when="i" ng-src="{{ model.thumb_src }}" alt="{{ model.alt_attribute }}">
+                        <span class="fa fa-fw fa-file-o" ng-switch-default></span>
+                    </td>
                     <td>
                         <input class="form-control input-sm" min="0" type="number" value="{{ model.position }}" name="position" ng-model="model.position" ng-change="update(model)">
                     </td>
