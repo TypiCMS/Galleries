@@ -1,8 +1,8 @@
 <div ng-app="typicms" ng-cloak ng-controller="ListController">
 
     <h1>
-        <a id="uploaderAddButtonContainer" href="#"><i id="uploaderAddButton" class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('files::global.New')) }}</span></a>
-        <span translate translate-n="models.length" translate-plural="{{ models.length }} files">{{ models.length }} file</span>
+        <a id="uploaderAddButtonContainer" href="#"><i id="uploaderAddButton" class="fa fa-plus-circle"></i><span class="sr-only">@{{ ucfirst(trans('files::global.New')) }}</span></a>
+        <span translate translate-n="models.length" translate-plural="@{{ models.length }} files">@{{ models.length }} file</span>
     </h1>
 
     <div class="dropzone" drop-zone="" id="dropzone">
@@ -28,10 +28,10 @@
                 <tr>
                     <td colspan="4"></td>
                     <td>
-                        <input st-search="title" class="form-control input-sm" placeholder="{{ 'Search' | translate }}…" type="text">
+                        <input st-search="title" class="form-control input-sm" placeholder="@{{ 'Search' | translate }}…" type="text">
                     </td>
                     <td>
-                        <input st-search="alt_attribute" class="form-control input-sm" placeholder="{{ 'Search' | translate }}…" type="text">
+                        <input st-search="alt_attribute" class="form-control input-sm" placeholder="@{{ 'Search' | translate }}…" type="text">
                     </td>
                     <td></td>
                     <td></td>
@@ -43,18 +43,18 @@
                     <td><typi-btn-delete ng-click="delete(model, model.file)"></typi-btn-delete></td>
                     <td typi-btn-edit></td>
                     <td ng-switch="model.type">
-                        <img ng-switch-when="i" ng-src="{{ model.thumb_src }}" alt="{{ model.alt_attribute }}">
+                        <img ng-switch-when="i" ng-src="@{{ model.thumb_src }}" alt="@{{ model.alt_attribute }}">
                         <span class="fa fa-fw fa-file-o" ng-switch-default></span>
                     </td>
                     <td>
-                        <input class="form-control input-sm" min="0" type="number" value="{{ model.position }}" name="position" ng-model="model.position" ng-change="update(model)">
+                        <input class="form-control input-sm" min="0" type="number" value="@{{ model.position }}" name="position" ng-model="model.position" ng-change="update(model)">
                     </td>
-                    <td>{{ model.file }}</td>
+                    <td>@{{ model.file }}</td>
                     <td contentEditable highlighter="model.alt_attribute" ng-model="model.alt_attribute" ng-blur="update(model)">
-                        {{ model.alt_attribute }}
+                        @{{ model.alt_attribute }}
                     </td>
-                    <td>{{ model.width }}</td>
-                    <td>{{ model.height }}</td>
+                    <td>@{{ model.width }}</td>
+                    <td>@{{ model.height }}</td>
                 </tr>
             </tbody>
             <tfoot>
