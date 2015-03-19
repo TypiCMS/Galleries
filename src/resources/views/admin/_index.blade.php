@@ -40,7 +40,7 @@
                     <td typi-btn-status action="toggleStatus(model)" model="model"></td>
                     <td>@{{ model.name }}</td>
                     <td>@{{ model.title }}</td>
-                    <td typi-btn-files></td>
+                    <td typi-btn-files model="model"></td>
                 </tr>
             </tbody>
             <tfoot>
