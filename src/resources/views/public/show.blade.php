@@ -10,8 +10,9 @@
 
     @include('galleries::public._slider')
 
+    @include('core::public._btn-prev-next', ['module' => 'Galleries', 'model' => $model])
     <article>
-        <h2>{{ $model->title }}</h2>
+        <h1>{{ $model->title }}</h1>
         <p class="summary">{{ nl2br($model->summary) }}</p>
         <div class="body">{!! $model->body !!}</div>
     </article>

@@ -6,7 +6,7 @@
 
 @section('main')
 
-    <h2>@lang('galleries::global.name')</h2>
+    <h1>@lang('galleries::global.name')</h1>
 
     @if ($models->count())
     <ul>
