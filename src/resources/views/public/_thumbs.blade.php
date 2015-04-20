@@ -4,7 +4,7 @@
         <div class="col-xs-6 col-sm-4 col-md-3">
             @if ($file->type == 'i')
             <a class="fancybox" href="{{ asset($file->path . '/' . $file->file) }}" data-fancybox-group="{{ $model->slug }}">
-                {{ $file->present()->thumb(370, 370, array(), 'file') }}
+                {!! $file->present()->thumb(370, 370, array(), 'file') !!}
             </a>
             @else
             <a class="file" href="{{ asset($file->path . '/' . $file->file) }}" target="_blank">

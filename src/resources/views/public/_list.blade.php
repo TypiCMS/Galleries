@@ -1,5 +1,5 @@
-<ul class="list-news">
-    @foreach ($items as $news)
-    @include('news::public._list-item')
+<ul class="list-galleries">
+    @foreach ($items as $gallery)
+    @include('galleries::public._list-item')
     @endforeach
 </ul>

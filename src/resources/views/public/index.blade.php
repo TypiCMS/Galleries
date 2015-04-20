@@ -9,15 +9,7 @@
     <h1>@lang('galleries::global.name')</h1>
 
     @if ($models->count())
-    <ul>
-        @foreach ($models as $model)
-        <li>
-            <strong>{{ $model->title }}</strong>
-            <div class="date">{{ $model->present()->dateFromTo }}</div>
-            <a href="{{ route($lang.'.galleries.slug', $model->slug) }}">@lang('db.More')</a>
-        </li>
-        @endforeach
-    </ul>
+    @include('galleries::public._list', ['items' => $models])
     @endif
 
     {!! $models->appends(Input::except('page'))->render() !!}

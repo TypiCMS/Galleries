@@ -1,10 +1,8 @@
 <li>
-    <a href="{{ route($lang . '.news.slug', $news->slug) }}">
-        {!! $news->present()->thumb(540, 400) !!}
-        <div class="list-news-info">
-            <div class="title">{{ $news->title }}</div>
-            <div class="summary">{{ $news->summary }}</div>
-            <div class="date">{{ $news->present()->dateLocalized }}</div>
+    <a href="{{ route($lang . '.galleries.slug', $gallery->slug) }}">
+        <div class="list-gallery-info">
+            <div class="title">{{ $gallery->title }}</div>
+            <div class="summary">{{ $gallery->summary }}</div>
         </div>
     </a>
 </li>
