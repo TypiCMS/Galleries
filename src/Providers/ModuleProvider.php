@@ -24,6 +24,9 @@ class ModuleProvider extends ServiceProvider
             __DIR__ . '/../config/config.php', 'typicms.galleries'
         );
 
+        $modules = $this->app['config']['typicms']['modules'];
+        $this->app['config']->set('typicms.modules', array_merge(['galleries' => ['linkable_to_page']], $modules));
+
         $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'galleries');
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'galleries');
 
