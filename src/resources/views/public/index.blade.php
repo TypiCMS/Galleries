@@ -1,12 +1,13 @@
-@extends('core::public.master')
+@extends('pages::public.master')
+<?php $page = TypiCMS::getPageLinkedToModule('galleries') ?>
 
-@section('title', trans('galleries::global.name') . ' – ' . $websiteTitle)
-@section('ogTitle', trans('galleries::global.name'))
-@section('bodyClass', 'body-galleries')
+@section('bodyClass', 'body-galleries body-galleries-index body-page body-page-' . $page->id)
 
 @section('main')
 
-    <h1>@lang('galleries::global.name')</h1>
+    {!! $page->body !!}
+
+    @include('galleries::public._galleries', ['model' => $page])
 
     @if ($models->count())
     @include('galleries::public._list', ['items' => $models])

@@ -44,10 +44,10 @@ class RouteServiceProvider extends ServiceProvider {
              */
             if ($page = TypiCMS::getPageLinkedToModule('galleries')) {
                 foreach (config('translatable.locales') as $lang) {
-                    if ($page->hasTranslation($lang)) {
-                        $uri = $page->translate($lang)->uri;
-                        $router->get($uri, ['as' => $lang.'.galleries', 'uses' => 'PublicController@index']);
-                        $router->get($uri.'/{slug}', ['as' => $lang.'.galleries.slug', 'uses' => 'PublicController@show']);
+                    $options = $page->private ? ['middleware' => 'auth'] : [] ;
+                    if ($uri = $page->uri($lang)) {
+                        $router->get($uri, $options + ['as' => $lang.'.galleries', 'uses' => 'PublicController@index']);
+                        $router->get($uri.'/{slug}', $options + ['as' => $lang.'.galleries.slug', 'uses' => 'PublicController@show']);
                     }
                 }
             }
