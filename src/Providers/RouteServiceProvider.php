@@ -1,9 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Providers;
 
-use Config;
-use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Routing\Router;
+use TypiCMS\Facades\TypiCMS;
 
 class RouteServiceProvider extends ServiceProvider {
 
@@ -42,12 +42,13 @@ class RouteServiceProvider extends ServiceProvider {
             /**
              * Front office routes
              */
-            $routes = $this->app->make('TypiCMS.routes');
-            foreach (Config::get('translatable.locales') as $lang) {
-                if (isset($routes['galleries'][$lang])) {
-                    $uri = $routes['galleries'][$lang];
-                    $router->get($uri, array('as' => $lang.'.galleries', 'uses' => 'PublicController@index'));
-                    $router->get($uri.'/{slug}', array('as' => $lang.'.galleries.slug', 'uses' => 'PublicController@show'));
+            if ($page = TypiCMS::getPageLinkedToModule('galleries')) {
+                foreach (config('translatable.locales') as $lang) {
+                    $options = $page->private ? ['middleware' => 'auth'] : [] ;
+                    if ($uri = $page->uri($lang)) {
+                        $router->get($uri, $options + ['as' => $lang.'.galleries', 'uses' => 'PublicController@index']);
+                        $router->get($uri.'/{slug}', $options + ['as' => $lang.'.galleries.slug', 'uses' => 'PublicController@show']);
+                    }
                 }
             }
 
