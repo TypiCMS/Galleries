@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Repositories;
 
-use App;
 use TypiCMS\Modules\Core\Repositories\CacheAbstractDecorator;
 use TypiCMS\Modules\Core\Services\Cache\CacheInterface;
 
@@ -21,7 +20,7 @@ class CacheDecorator extends CacheAbstractDecorator implements GalleryInterface
      */
     public function getNames()
     {
-        $cacheKey = md5(App::getLocale() . 'getNames');
+        $cacheKey = md5(config('app.locale') . 'getNames');
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
