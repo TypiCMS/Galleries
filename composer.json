@@ -1,6 +1,7 @@
 {
     "name": "typicms/galleries",
     "description": "",
+    "license": "MIT",
     "authors": [
         {
             "name": "Samuel De Backer",
