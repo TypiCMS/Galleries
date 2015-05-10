@@ -1,7 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Models;
 
-use TypiCMS\Models\BaseTranslation;
+use TypiCMS\Modules\Core\Models\BaseTranslation;
 
 class GalleryTranslation extends BaseTranslation
 {

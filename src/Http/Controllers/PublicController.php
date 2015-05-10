@@ -5,7 +5,7 @@ use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Support\Str;
 use Input;
 use TypiCMS;
-use TypiCMS\Http\Controllers\BasePublicController;
+use TypiCMS\Modules\Core\Http\Controllers\BasePublicController;
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
 use View;
 

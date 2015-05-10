@@ -1,7 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Repositories;
 
-use TypiCMS\Repositories\RepositoryInterface;
+use TypiCMS\Modules\Core\Repositories\RepositoryInterface;
 
 interface GalleryInterface extends RepositoryInterface
 {

@@ -10,8 +10,8 @@ use TypiCMS\Modules\Galleries\Models\Gallery;
 use TypiCMS\Modules\Galleries\Models\GalleryTranslation;
 use TypiCMS\Modules\Galleries\Repositories\CacheDecorator;
 use TypiCMS\Modules\Galleries\Repositories\EloquentGallery;
-use TypiCMS\Observers\SlugObserver;
-use TypiCMS\Services\Cache\LaravelCache;
+use TypiCMS\Modules\Core\Observers\SlugObserver;
+use TypiCMS\Modules\Core\Services\Cache\LaravelCache;
 use View;
 
 class ModuleProvider extends ServiceProvider

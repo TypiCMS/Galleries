@@ -1,7 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Http\Controllers;
 
-use TypiCMS\Http\Controllers\BaseApiController;
+use TypiCMS\Modules\Core\Http\Controllers\BaseApiController;
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface as Repository;
 
 class ApiController extends BaseApiController
