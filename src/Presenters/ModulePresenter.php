@@ -1,7 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Presenters;
 
-use TypiCMS\Presenters\Presenter;
+use Laracasts\Presenter\Presenter;
 
 class ModulePresenter extends Presenter
 {
@@ -25,7 +25,7 @@ class ModulePresenter extends Presenter
 
     /**
      * Get title
-     * 
+     *
      * @return string
      */
     public function title()

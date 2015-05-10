@@ -2,9 +2,9 @@
 namespace TypiCMS\Modules\Galleries\Models;
 
 use Dimsav\Translatable\Translatable;
+use Laracasts\Presenter\PresentableTrait;
 use TypiCMS\Models\Base;
 use TypiCMS\Modules\History\Traits\Historable;
-use TypiCMS\Presenters\PresentableTrait;
 
 class Gallery extends Base
 {
@@ -72,7 +72,7 @@ class Gallery extends Base
 
     /**
      * Get files count
-     * 
+     *
      * @return string title
      */
     public function getFilesCountAttribute()
