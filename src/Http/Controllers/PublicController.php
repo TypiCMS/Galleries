@@ -3,11 +3,10 @@ namespace TypiCMS\Modules\Galleries\Http\Controllers;
 
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Support\Str;
-use Input;
+use Illuminate\Support\Facades\Input;
 use TypiCMS;
 use TypiCMS\Modules\Core\Http\Controllers\BasePublicController;
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
-use View;
 
 class PublicController extends BasePublicController
 {
