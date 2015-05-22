@@ -2,11 +2,11 @@
 
     <h1>
         <a id="uploaderAddButtonContainer" href="#"><i id="uploaderAddButton" class="fa fa-plus-circle"></i><span class="sr-only">@{{ ucfirst(trans('files::global.New')) }}</span></a>
-        <span translate translate-n="models.length" translate-plural="@{{ models.length }} files">@{{ models.length }} file</span>
+        <span>@{{ models.length }} @choice('files::global.files', 2)</span>
     </h1>
 
     <div class="dropzone" drop-zone="" id="dropzone">
-        <div class="dz-message" translate>Click or drop files to upload.</div>
+        <div class="dz-message">Click or drop files to upload.</div>
     </div>
 
     <div class="btn-toolbar" role="toolbar" ng-include="'/views/partials/btnLocales.html'"></div>
@@ -18,20 +18,20 @@
                 <tr>
                     <th class="delete"></th>
                     <th class="edit"></th>
-                    <th class="image" translate>Image</th>
-                    <th st-sort="position" st-sort-default="true" class="position st-sort" translate>Position</th>
-                    <th st-sort="file" class="title st-sort" translate>Filename</th>
+                    <th class="image">Image</th>
+                    <th st-sort="position" st-sort-default="true" class="position st-sort">Position</th>
+                    <th st-sort="file" class="title st-sort">Filename</th>
                     <th st-sort="alt_attribute" class="selected st-sort">Alt attribute</th>
-                    <th st-sort="width" class="width st-sort" translate>Width</th>
-                    <th st-sort="height" class="width st-sort" translate>Height</th>
+                    <th st-sort="width" class="width st-sort">Width</th>
+                    <th st-sort="height" class="width st-sort">Height</th>
                 </tr>
                 <tr>
                     <td colspan="4"></td>
                     <td>
-                        <input st-search="title" class="form-control input-sm" placeholder="@{{ 'Search' | translate }}…" type="text">
+                        <input st-search="title" class="form-control input-sm" placeholder="@lang('global.Search')…" type="text">
                     </td>
                     <td>
-                        <input st-search="alt_attribute" class="form-control input-sm" placeholder="@{{ 'Search' | translate }}…" type="text">
+                        <input st-search="alt_attribute" class="form-control input-sm" placeholder="@lang('global.Search')…" type="text">
                     </td>
                     <td></td>
                     <td></td>
@@ -42,7 +42,7 @@
                 <tr ng-repeat="model in displayedModels">
                     <td typi-btn-delete action="delete(model, model.file)"></td>
                     <td>
-                        <a class="btn btn-default btn-xs" href="../../files/@{{ model.id }}/edit" translate>Edit</a>
+                        <a class="btn btn-default btn-xs" href="../../files/@{{ model.id }}/edit">Edit</a>
                     </td>
                     <td ng-switch="model.type">
                         <img ng-switch-when="i" ng-src="@{{ model.thumb_src }}" alt="@{{ model.alt_attribute }}">
