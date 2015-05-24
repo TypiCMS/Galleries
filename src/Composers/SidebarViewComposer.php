@@ -19,7 +19,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
                 $item->route('admin.galleries.index');
                 $item->append('admin.galleries.create');
                 $item->authorize(
-                    $this->auth->hasAccess('galleries.index')
+                    $this->user->hasAccess('galleries.index')
                 );
             });
         });
