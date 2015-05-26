@@ -8,10 +8,10 @@
 {!! BootForm::hidden('id') !!}
 
 <ul class="nav nav-tabs">
-    <li class="@if (input::get('tab') != 'tab-files')active @endif">
+    <li class="@if (Input::get('tab') != 'tab-files')active @endif">
         <a href="#tab-main" data-target="#tab-main" data-toggle="tab">@lang('global.Content')</a>
     </li>
-    <li class="@if (input::get('tab') == 'tab-files')active @endif">
+    <li class="@if (Input::get('tab') == 'tab-files')active @endif">
         <a href="#tab-files" data-target="#tab-files" data-toggle="tab">@lang('global.Files')</a>
     </li>
 </ul>
@@ -19,7 +19,7 @@
 <div class="tab-content">
 
     {{-- Main tab --}}
-    <div class="tab-pane fade in @if (input::get('tab') != 'tab-files')active @endif" id="tab-main">
+    <div class="tab-pane fade in @if (Input::get('tab') != 'tab-files')active @endif" id="tab-main">
 
         {!! BootForm::text(trans('validation.attributes.name'), 'name') !!}
 
@@ -44,7 +44,7 @@
     </div>
 
     {{-- Galleries tab --}}
-    <div class="tab-pane fade in @if (input::get('tab') == 'tab-files')active @endif" id="tab-files">
+    <div class="tab-pane fade in @if (Input::get('tab') == 'tab-files')active @endif" id="tab-files">
 
         @if ($model->id)
             @include('galleries::admin.files')
