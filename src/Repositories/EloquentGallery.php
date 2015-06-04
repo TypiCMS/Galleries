@@ -20,7 +20,7 @@ class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
      */
     public function getNames()
     {
-        return $this->model->lists('name');
+        return $this->model->lists('name')->all();
     }
 
     /**
