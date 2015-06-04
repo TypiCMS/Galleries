@@ -1,5 +1,5 @@
 @extends('core::public.master')
-<?php $page = TypiCMS::getPageLinkedToModule('galleries') ?>
+@inject('page', 'typicms.galleries.page')
 
 @section('title', $model->title . ' – ' . trans('galleries::global.name') . ' – ' . $websiteTitle)
 @section('ogTitle', $model->title)
