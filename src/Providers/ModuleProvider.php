@@ -4,12 +4,13 @@ namespace TypiCMS\Modules\Galleries\Providers;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
+use TypiCMS\Modules\Core\Facades\TypiCMS;
+use TypiCMS\Modules\Core\Observers\SlugObserver;
+use TypiCMS\Modules\Core\Services\Cache\LaravelCache;
 use TypiCMS\Modules\Galleries\Models\Gallery;
 use TypiCMS\Modules\Galleries\Models\GalleryTranslation;
 use TypiCMS\Modules\Galleries\Repositories\CacheDecorator;
 use TypiCMS\Modules\Galleries\Repositories\EloquentGallery;
-use TypiCMS\Modules\Core\Observers\SlugObserver;
-use TypiCMS\Modules\Core\Services\Cache\LaravelCache;
 
 class ModuleProvider extends ServiceProvider
 {
