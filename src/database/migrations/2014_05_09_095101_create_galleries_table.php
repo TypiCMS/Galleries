@@ -24,7 +24,7 @@ class CreateGalleriesTable extends Migration
         Schema::create('gallery_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
-            $table->increments('id')->unsigned();
+            $table->increments('id');
             $table->integer('gallery_id')->unsigned();
 
             $table->string('locale');
