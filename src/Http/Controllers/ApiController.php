@@ -1,8 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use TypiCMS\Modules\Core\Http\Controllers\BaseApiController;
-use TypiCMS\Modules\Galleries\Http\Requests\FormRequest;
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface as Repository;
 
 class ApiController extends BaseApiController
@@ -26,10 +26,9 @@ class ApiController extends BaseApiController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  FormRequest $request
      * @return Model|false
      */
-    public function store(FormRequest $request)
+    public function store()
     {
         $model = $this->repository->create(Input::all());
         $error = $model ? false : true ;
@@ -43,12 +42,11 @@ class ApiController extends BaseApiController
      * Update the specified resource in storage.
      *
      * @param  $model
-     * @param  FormRequest $request
      * @return boolean
      */
-    public function update($model, FormRequest $request)
+    public function update($model)
     {
-        $error = $this->repository->update($request->all()) ? false : true ;
+        $error = $this->repository->update(Input::all()) ? false : true ;
         return response()->json([
             'error' => $error,
         ], 200);
