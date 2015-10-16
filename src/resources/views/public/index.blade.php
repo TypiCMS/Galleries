@@ -1,5 +1,4 @@
 @extends('pages::public.master')
-@inject('page', 'typicms.galleries.page')
 
 @section('bodyClass', 'body-galleries body-galleries-index body-page body-page-' . $page->id)
 

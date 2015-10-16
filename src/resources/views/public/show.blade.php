@@ -1,5 +1,4 @@
 @extends('core::public.master')
-@inject('page', 'typicms.galleries.page')
 
 @section('title', $model->title . ' – ' . trans('galleries::global.name') . ' – ' . $websiteTitle)
 @section('ogTitle', $model->title)

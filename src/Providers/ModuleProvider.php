@@ -59,6 +59,13 @@ class ModuleProvider extends ServiceProvider
          */
         $app->view->composer('core::admin._sidebar', 'TypiCMS\Modules\Galleries\Composers\SidebarViewComposer');
 
+        /**
+         * Add the page in the view.
+         */
+        $app->view->composer('galleries::public.*', function ($view) {
+            $view->page = TypiCMS::getPageLinkedToModule('galleries');
+        });
+
         $app->bind('TypiCMS\Modules\Galleries\Repositories\GalleryInterface', function (Application $app) {
             $repository = new EloquentGallery(new Gallery);
             if (! config('typicms.cache')) {
@@ -67,13 +74,6 @@ class ModuleProvider extends ServiceProvider
             $laravelCache = new LaravelCache($app['cache'], ['galleries', 'files'], 10);
 
             return new CacheDecorator($repository, $laravelCache);
-        });
-
-        /**
-         * Return the page linked to this module (for @inject in views)
-         */
-        $app->singleton('typicms.galleries.page', function (Application $app) {
-            return TypiCMS::getPageLinkedToModule('galleries');
         });
 
     }
