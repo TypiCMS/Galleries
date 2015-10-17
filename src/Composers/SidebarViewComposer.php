@@ -1,4 +1,5 @@
 <?php
+
 namespace TypiCMS\Modules\Galleries\Composers;
 
 use Illuminate\Contracts\View\View;

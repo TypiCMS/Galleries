@@ -1,4 +1,5 @@
 <?php
+
 namespace TypiCMS\Modules\Galleries\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
@@ -7,14 +8,13 @@ use TypiCMS\Modules\Files\Models\File;
 
 class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
 {
-
     public function __construct(Model $model)
     {
         $this->model = $model;
     }
 
     /**
-     * Get all items name
+     * Get all items name.
      *
      * @return array with names
      */
@@ -24,9 +24,9 @@ class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
     }
 
     /**
-     * Delete model and attached files
+     * Delete model and attached files.
      *
-     * @return boolean
+     * @return bool
      */
     public function delete($model)
     {

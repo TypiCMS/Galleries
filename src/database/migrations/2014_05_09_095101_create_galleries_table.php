@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateGalleriesTable extends Migration
 {
@@ -39,7 +39,7 @@ class CreateGalleriesTable extends Migration
 
             $table->timestamps();
 
-            $table->unique(array('gallery_id', 'locale'));
+            $table->unique(['gallery_id', 'locale']);
             $table->foreign('gallery_id')->references('id')->on('galleries')->onDelete('cascade');
 
         });
@@ -55,5 +55,4 @@ class CreateGalleriesTable extends Migration
         Schema::drop('gallery_translations');
         Schema::drop('galleries');
     }
-
 }

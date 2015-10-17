@@ -1,22 +1,22 @@
 <?php
+
 namespace TypiCMS\Modules\Galleries\Repositories;
 
 use TypiCMS\Modules\Core\Repositories\RepositoryInterface;
 
 interface GalleryInterface extends RepositoryInterface
 {
-
     /**
-     * Get all items name
+     * Get all items name.
      *
      * @return array with names
      */
     public function getNames();
 
     /**
-     * Delete model and attached files
+     * Delete model and attached files.
      *
-     * @return boolean
+     * @return bool
      */
     public function delete($model);
 }

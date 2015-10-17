@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateGalleryableTable extends Migration
 {
@@ -32,5 +32,4 @@ class CreateGalleryableTable extends Migration
     {
         Schema::drop('galleryables');
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace TypiCMS\Modules\Galleries\Models;
 
 use Dimsav\Translatable\Translatable;
@@ -8,14 +9,13 @@ use TypiCMS\Modules\History\Traits\Historable;
 
 class Gallery extends Base
 {
-
     use Historable;
     use Translatable;
     use PresentableTrait;
 
     protected $presenter = 'TypiCMS\Modules\Galleries\Presenters\ModulePresenter';
 
-    protected $fillable = array(
+    protected $fillable = [
         'name',
         // Translatable columns
         'title',
@@ -23,20 +23,20 @@ class Gallery extends Base
         'status',
         'summary',
         'body',
-    );
+    ];
 
     /**
      * Translatable model configs.
      *
      * @var array
      */
-    public $translatedAttributes = array(
+    public $translatedAttributes = [
         'title',
         'slug',
         'status',
         'summary',
         'body',
-    );
+    ];
 
     protected $appends = ['status', 'title', 'files_count'];
 
@@ -71,7 +71,7 @@ class Gallery extends Base
     }
 
     /**
-     * Get files count
+     * Get files count.
      *
      * @return string title
      */

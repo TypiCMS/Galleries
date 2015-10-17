@@ -1,8 +1,8 @@
 <?php
+
 namespace TypiCMS\Modules\Galleries\Http\Controllers;
 
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Input;
 use TypiCMS;
 use TypiCMS\Modules\Core\Http\Controllers\BasePublicController;
@@ -10,7 +10,6 @@ use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
 
 class PublicController extends BasePublicController
 {
-
     public function __construct(GalleryInterface $gallery)
     {
         parent::__construct($gallery);
@@ -40,6 +39,7 @@ class PublicController extends BasePublicController
     public function show($slug)
     {
         $model = $this->repository->bySlug($slug, ['translations', 'files', 'files.translations']);
+
         return view('galleries::public.show')
             ->with(compact('model'));
     }
