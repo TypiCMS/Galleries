@@ -1,9 +1,9 @@
 <?php
+
 use TypiCMS\Modules\Galleries\Models\Gallery;
 
 class GalleriesControllerTest extends TestCase
 {
-
     public function testAdminIndex()
     {
         $response = $this->call('GET', 'admin/galleries');
@@ -12,11 +12,11 @@ class GalleriesControllerTest extends TestCase
 
     public function testStoreFails()
     {
-        $input = array(
-            'en' => array(
+        $input = [
+            'en' => [
                 'status' => 1,
-            )
-        );
+            ],
+        ];
         $this->call('POST', 'admin/galleries', $input);
         $this->assertRedirectedToRoute('admin.galleries.create');
         $this->assertSessionHasErrors();
@@ -24,22 +24,21 @@ class GalleriesControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new Gallery;
+        $object = new Gallery();
         $object->id = 1;
         Gallery::shouldReceive('create')->once()->andReturn($object);
-        $input = array('name' => 'test');
+        $input = ['name' => 'test'];
         $this->call('POST', 'admin/galleries', $input);
-        $this->assertRedirectedToRoute('admin.galleries.edit', array('id' => 1));
+        $this->assertRedirectedToRoute('admin.galleries.edit', ['id' => 1]);
     }
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new Gallery;
+        $object = new Gallery();
         $object->id = 1;
         Gallery::shouldReceive('create')->once()->andReturn($object);
-        $input = array('name' => 'test', 'exit' => true);
+        $input = ['name' => 'test', 'exit' => true];
         $this->call('POST', 'admin/galleries', $input);
         $this->assertRedirectedToRoute('admin.galleries.index');
     }
-
 }

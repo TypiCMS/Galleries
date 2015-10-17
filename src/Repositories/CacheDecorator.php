@@ -1,4 +1,5 @@
 <?php
+
 namespace TypiCMS\Modules\Galleries\Repositories;
 
 use TypiCMS\Modules\Core\Repositories\CacheAbstractDecorator;
@@ -6,7 +7,6 @@ use TypiCMS\Modules\Core\Services\Cache\CacheInterface;
 
 class CacheDecorator extends CacheAbstractDecorator implements GalleryInterface
 {
-
     public function __construct(GalleryInterface $repo, CacheInterface $cache)
     {
         $this->repo = $repo;
@@ -14,13 +14,13 @@ class CacheDecorator extends CacheAbstractDecorator implements GalleryInterface
     }
 
     /**
-     * Get all items name
+     * Get all items name.
      *
      * @return array with names
      */
     public function getNames()
     {
-        $cacheKey = md5(config('app.locale') . 'getNames');
+        $cacheKey = md5(config('app.locale').'getNames');
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -36,14 +36,15 @@ class CacheDecorator extends CacheAbstractDecorator implements GalleryInterface
     }
 
     /**
-     * Delete model and attached files
+     * Delete model and attached files.
      *
-     * @return boolean
+     * @return bool
      */
     public function delete($model)
     {
         $this->cache->flush();
         $this->cache->flush('dashboard');
+
         return $this->repo->delete($model);
     }
 }
