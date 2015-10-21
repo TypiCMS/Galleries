@@ -6,6 +6,7 @@ use Illuminate\Foundation\AliasLoader;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use TypiCMS\Modules\Core\Facades\TypiCMS;
+use TypiCMS\Modules\Core\Observers\FileObserver;
 use TypiCMS\Modules\Core\Observers\SlugObserver;
 use TypiCMS\Modules\Core\Services\Cache\LaravelCache;
 use TypiCMS\Modules\Galleries\Models\Gallery;
@@ -41,6 +42,7 @@ class ModuleProvider extends ServiceProvider
 
         // Observers
         GalleryTranslation::observe(new SlugObserver());
+        Gallery::observe(new FileObserver());
     }
 
     public function register()

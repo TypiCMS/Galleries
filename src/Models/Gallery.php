@@ -17,6 +17,7 @@ class Gallery extends Base
 
     protected $fillable = [
         'name',
+        'image',
         // Translatable columns
         'title',
         'slug',
@@ -38,7 +39,16 @@ class Gallery extends Base
         'body',
     ];
 
-    protected $appends = ['status', 'title', 'files_count'];
+    protected $appends = ['status', 'title', 'files_count', 'thumb'];
+
+    /**
+     * Columns that are file.
+     *
+     * @var array
+     */
+    public $attachments = [
+        'image',
+    ];
 
     /**
      * One gallery has many files.

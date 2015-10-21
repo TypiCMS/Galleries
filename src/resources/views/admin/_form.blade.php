@@ -7,6 +7,8 @@
 
 {!! BootForm::hidden('id') !!}
 
+@include('core::admin._image-fieldset', ['field' => 'image'])
+
 <ul class="nav nav-tabs">
     <li class="@if (Input::get('tab') != 'tab-files')active @endif">
         <a href="#tab-main" data-target="#tab-main" data-toggle="tab">@lang('global.Content')</a>
