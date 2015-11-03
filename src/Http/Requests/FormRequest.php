@@ -9,7 +9,7 @@ class FormRequest extends AbstractFormRequest
     public function rules()
     {
         $rules = [
-            'name' => 'required|alpha_dash',
+            'name' => 'required|max:255|alpha_dash',
         ];
         foreach (config('translatable.locales') as $locale) {
             $rules[$locale.'.slug'] = [
