@@ -7,13 +7,6 @@ use TypiCMS\Modules\Core\Repositories\RepositoryInterface;
 interface GalleryInterface extends RepositoryInterface
 {
     /**
-     * Get all items name.
-     *
-     * @return array with names
-     */
-    public function getNames();
-
-    /**
      * Delete model and attached files.
      *
      * @return bool

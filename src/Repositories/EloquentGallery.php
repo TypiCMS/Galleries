@@ -14,16 +14,6 @@ class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
     }
 
     /**
-     * Get all items name.
-     *
-     * @return array with names
-     */
-    public function getNames()
-    {
-        return $this->model->lists('name')->all();
-    }
-
-    /**
      * Delete model and attached files.
      *
      * @return bool
