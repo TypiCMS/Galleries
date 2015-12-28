@@ -1,5 +1,5 @@
 @if ($model->files->count())
-    <ul class="gallery">
+    <ul class="gallery-list">
     @foreach ($model->files as $file)
         <li class="gallery-file">
             @if ($file->type == 'i')
