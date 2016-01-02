@@ -18,20 +18,6 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace = 'TypiCMS\Modules\Galleries\Http\Controllers';
 
     /**
-     * Define your route model bindings, pattern filters, etc.
-     *
-     * @param \Illuminate\Routing\Router $router
-     *
-     * @return void
-     */
-    public function boot(Router $router)
-    {
-        parent::boot($router);
-
-        $router->model('galleries', 'TypiCMS\Modules\Galleries\Models\Gallery');
-    }
-
-    /**
      * Define the routes for the application.
      *
      * @param \Illuminate\Routing\Router $router
@@ -58,12 +44,18 @@ class RouteServiceProvider extends ServiceProvider
             /*
              * Admin routes
              */
-            $router->resource('admin/galleries', 'AdminController');
+            $router->get('admin/galleries', ['as' => 'admin.galleries.index', 'uses' => 'AdminController@index']);
+            $router->get('admin/galleries/create', ['as' => 'admin.galleries.create', 'uses' => 'AdminController@create']);
+            $router->get('admin/galleries/{gallery}/edit', ['as' => 'admin.galleries.edit', 'uses' => 'AdminController@edit']);
+            $router->post('admin/galleries', ['as' => 'admin.galleries.store', 'uses' => 'AdminController@store']);
+            $router->put('admin/galleries/{gallery}', ['as' => 'admin.galleries.update', 'uses' => 'AdminController@update']);
 
             /*
              * API routes
              */
-            $router->resource('api/galleries', 'ApiController');
+            $router->get('api/galleries', ['as' => 'api.galleries.index', 'uses' => 'ApiController@index']);
+            $router->put('api/galleries/{gallery}', ['as' => 'api.galleries.update', 'uses' => 'ApiController@update']);
+            $router->delete('api/galleries/{gallery}', ['as' => 'api.galleries.destroy', 'uses' => 'ApiController@destroy']);
         });
     }
 }
