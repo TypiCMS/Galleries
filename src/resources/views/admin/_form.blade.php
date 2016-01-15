@@ -9,6 +9,8 @@
 
 @include('core::admin._image-fieldset', ['field' => 'image'])
 
+{!! BootForm::text(trans('validation.attributes.name'), 'name') !!}
+
 <ul class="nav nav-tabs">
     <li class="@if (Request::input('tab') != 'tab-files')active @endif">
         <a href="#tab-main" data-target="#tab-main" data-toggle="tab">@lang('global.Content')</a>
@@ -23,25 +25,11 @@
     {{-- Main tab --}}
     <div class="tab-pane fade in @if (Request::input('tab') != 'tab-files')active @endif" id="tab-main">
 
-        {!! BootForm::text(trans('validation.attributes.name'), 'name') !!}
-
-        @include('core::admin._tabs-lang')
-
-        <div class="tab-content">
-
-            @foreach ($locales as $lang)
-
-            <div class="tab-pane fade @if ($locale == $lang)in active @endif" id="{{ $lang }}">
-                @include('core::form._title-and-slug')
-                <input type="hidden" name="{{ $lang }}[status]" value="0">
-                {!! BootForm::checkbox(trans('validation.attributes.online'), $lang.'[status]') !!}
-                {!! BootForm::textarea(trans('validation.attributes.summary'), $lang.'[summary]')->rows(4) !!}
-                {!! BootForm::textarea(trans('validation.attributes.body'), $lang.'[body]')->addClass('ckeditor') !!}
-            </div>
-
-            @endforeach
-
-        </div>
+        @include('core::form._title-and-slug')
+        {!! TranslatableBootForm::hidden('status')->value(0) !!}
+        {!! TranslatableBootForm::checkbox(trans('validation.attributes.online'), 'status') !!}
+        {!! TranslatableBootForm::textarea(trans('validation.attributes.summary'), 'summary')->rows(4) !!}
+        {!! TranslatableBootForm::textarea(trans('validation.attributes.body'), 'body')->addClass('ckeditor') !!}
 
     </div>
 
