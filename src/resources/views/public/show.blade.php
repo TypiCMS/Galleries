@@ -20,4 +20,4 @@
 
     @include('galleries::public._thumbs')
 
-@stop
+@endsection
