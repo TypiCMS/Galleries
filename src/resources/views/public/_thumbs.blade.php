@@ -7,7 +7,7 @@
                 <img class="files-list-image-thumb" src="{!! $file->present()->thumbSrc(370, 370, array(), 'file') !!}" alt="{{ $file->alt_attribute }}">
             </a>
             @else
-            <a class="files-list-document" href="{{ asset($file->path . '/' . $file->file) }}" target="_blank">
+            <a class="files-list-document" href="{{ asset($file->path.'/'.$file->file) }}" target="_blank">
                 <span class="files-list-document-icon fa fa-file-o fa-3x"></span>
                 <span class="files-list-document-filename">{{ $file->file }}</span> <small class="files-list-document-filesize">({{ $file->present()->filesize }})</small>
             </a>

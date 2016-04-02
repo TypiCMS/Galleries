@@ -1,10 +1,10 @@
 @extends('core::public.master')
 
-@section('title', $model->title . ' – ' . trans('galleries::global.name') . ' – ' . $websiteTitle)
+@section('title', $model->title.' – '.trans('galleries::global.name').' – '.$websiteTitle)
 @section('ogTitle', $model->title)
 @section('description', $model->summary)
 @section('image', $model->present()->thumbUrl())
-@section('bodyClass', 'body-galleries body-gallery-' . $model->id . ' body-page body-page-' . $page->id)
+@section('bodyClass', 'body-galleries body-gallery-'.$model->id.' body-page body-page-'.$page->id)
 
 @section('main')
 

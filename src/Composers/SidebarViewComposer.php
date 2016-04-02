@@ -5,9 +5,8 @@ namespace TypiCMS\Modules\Galleries\Composers;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Sidebar\SidebarGroup;
 use Maatwebsite\Sidebar\SidebarItem;
-use TypiCMS\Modules\Core\Composers\BaseSidebarViewComposer;
 
-class SidebarViewComposer extends BaseSidebarViewComposer
+class SidebarViewComposer
 {
     public function compose(View $view)
     {
@@ -17,10 +16,10 @@ class SidebarViewComposer extends BaseSidebarViewComposer
             $group->addItem(trans('galleries::global.name'), function (SidebarItem $item) {
                 $item->icon = config('typicms.galleries.sidebar.icon', 'icon fa fa-fw fa-photo');
                 $item->weight = config('typicms.galleries.sidebar.weight');
-                $item->route('admin.galleries.index');
-                $item->append('admin.galleries.create');
+                $item->route('admin::index-galleries');
+                $item->append('admin::create-galleries');
                 $item->authorize(
-                    $this->auth->hasAccess('galleries.index')
+                    auth()->user()->can('index-galleries')
                 );
             });
         });

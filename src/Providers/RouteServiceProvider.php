@@ -44,18 +44,18 @@ class RouteServiceProvider extends ServiceProvider
             /*
              * Admin routes
              */
-            $router->get('admin/galleries', ['as' => 'admin.galleries.index', 'uses' => 'AdminController@index']);
-            $router->get('admin/galleries/create', ['as' => 'admin.galleries.create', 'uses' => 'AdminController@create']);
-            $router->get('admin/galleries/{gallery}/edit', ['as' => 'admin.galleries.edit', 'uses' => 'AdminController@edit']);
-            $router->post('admin/galleries', ['as' => 'admin.galleries.store', 'uses' => 'AdminController@store']);
-            $router->put('admin/galleries/{gallery}', ['as' => 'admin.galleries.update', 'uses' => 'AdminController@update']);
+            $router->get('admin/galleries', 'AdminController@index')->name('admin::index-galleries');
+            $router->get('admin/galleries/create', 'AdminController@create')->name('admin::create-galleries');
+            $router->get('admin/galleries/{gallery}/edit', 'AdminController@edit')->name('admin::edit-galleries');
+            $router->post('admin/galleries', 'AdminController@store')->name('admin::store-galleries');
+            $router->put('admin/galleries/{gallery}', 'AdminController@update')->name('admin::update-galleries');
 
             /*
              * API routes
              */
-            $router->get('api/galleries', ['as' => 'api.galleries.index', 'uses' => 'ApiController@index']);
-            $router->put('api/galleries/{gallery}', ['as' => 'api.galleries.update', 'uses' => 'ApiController@update']);
-            $router->delete('api/galleries/{gallery}', ['as' => 'api.galleries.destroy', 'uses' => 'ApiController@destroy']);
+            $router->get('api/galleries', 'ApiController@index')->name('api::index-galleries');
+            $router->put('api/galleries/{gallery}', 'ApiController@update')->name('api::update-galleries');
+            $router->delete('api/galleries/{gallery}', 'ApiController@destroy')->name('api::destroy-galleries');
         });
     }
 }
