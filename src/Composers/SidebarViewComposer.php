@@ -3,6 +3,7 @@
 namespace TypiCMS\Modules\Galleries\Composers;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Sidebar\SidebarGroup;
 use Maatwebsite\Sidebar\SidebarItem;
 
@@ -19,7 +20,7 @@ class SidebarViewComposer
                 $item->route('admin::index-galleries');
                 $item->append('admin::create-galleries');
                 $item->authorize(
-                    auth()->user()->can('index-galleries')
+                    Gate::allows('index-galleries')
                 );
             });
         });
