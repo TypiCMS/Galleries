@@ -81,9 +81,39 @@ class Gallery extends Base
     }
 
     /**
-     * Get files count.
+     * Append status attribute from translation table.
+     *
+     * @return string
+     */
+    public function getStatusAttribute($value)
+    {
+        return $this->status;
+    }
+
+    /**
+     * Append title attribute from translation table.
      *
      * @return string title
+     */
+    public function getTitleAttribute($value)
+    {
+        return $this->title;
+    }
+
+    /**
+     * Append thumb attribute.
+     *
+     * @return string
+     */
+    public function getThumbAttribute($value)
+    {
+        return $this->present()->thumbSrc(null, 22);
+    }
+
+    /**
+     * Append files_count attribute.
+     *
+     * @return string
      */
     public function getFilesCountAttribute()
     {
