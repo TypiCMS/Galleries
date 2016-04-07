@@ -18,7 +18,7 @@ class SidebarViewComposer
                 $item->icon = config('typicms.galleries.sidebar.icon', 'icon fa fa-fw fa-photo');
                 $item->weight = config('typicms.galleries.sidebar.weight');
                 $item->route('admin::index-galleries');
-                $item->append('admin::create-galleries');
+                $item->append('admin::create-gallery');
                 $item->authorize(
                     Gate::allows('index-galleries')
                 );
