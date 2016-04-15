@@ -17,23 +17,12 @@ class CreateGalleriesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('image')->nullable();
+            $table->json('status');
+            $table->json('title');
+            $table->json('slug');
+            $table->json('summary');
+            $table->json('body');
             $table->timestamps();
-        });
-
-        Schema::create('gallery_translations', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->integer('gallery_id')->unsigned();
-            $table->string('locale');
-            $table->boolean('status')->default(0);
-            $table->string('title');
-            $table->string('slug')->nullable();
-            $table->text('summary');
-            $table->text('body');
-            $table->timestamps();
-            $table->unique(['gallery_id', 'locale']);
-            $table->unique(['locale', 'slug']);
-            $table->foreign('gallery_id')->references('id')->on('galleries')->onDelete('cascade');
         });
     }
 
@@ -44,7 +33,6 @@ class CreateGalleriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('gallery_translations');
         Schema::drop('galleries');
     }
 }
