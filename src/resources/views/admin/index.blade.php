@@ -8,9 +8,7 @@
 
     @include('core::admin._button-create', ['module' => 'galleries'])
 
-    <h1>
-        <span>@{{ models.length }} @choice('galleries::global.galleries', 2)</span>
-    </h1>
+    <h1>@lang('galleries::global.name')</h1>
 
     <div class="btn-toolbar">
         @include('core::admin._lang-switcher')

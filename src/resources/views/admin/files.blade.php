@@ -1,9 +1,7 @@
 <div ng-app="typicms" ng-cloak ng-controller="ListController">
 
     <a id="uploaderAddButtonContainer" href="#" class="btn-add"><i id="uploaderAddButton" class="fa fa-plus-circle"></i><span class="sr-only">@{{ ucfirst(trans('files::global.New')) }}</span></a>
-    <h1>
-        <span>@{{ models.length }} @choice('files::global.files', 2)</span>
-    </h1>
+    <h1>@lang('files::global.name')</h1>
 
     <div class="dropzone" drop-zone="" id="dropzone">
         <div class="dz-message">@lang('files::global.Click or drop files to upload')</div>
