@@ -41,7 +41,7 @@ class ModuleProvider extends ServiceProvider
         );
 
         // Observers
-        GalleryTranslation::observe(new SlugObserver());
+        Gallery::observe(new SlugObserver());
         Gallery::observe(new FileObserver());
     }
 
