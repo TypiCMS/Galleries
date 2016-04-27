@@ -10,7 +10,6 @@ use TypiCMS\Modules\Core\Observers\FileObserver;
 use TypiCMS\Modules\Core\Observers\SlugObserver;
 use TypiCMS\Modules\Core\Services\Cache\LaravelCache;
 use TypiCMS\Modules\Galleries\Models\Gallery;
-use TypiCMS\Modules\Galleries\Models\GalleryTranslation;
 use TypiCMS\Modules\Galleries\Repositories\CacheDecorator;
 use TypiCMS\Modules\Galleries\Repositories\EloquentGallery;
 
