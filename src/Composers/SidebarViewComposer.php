@@ -15,6 +15,7 @@ class SidebarViewComposer
             $group->id = 'media';
             $group->weight = 40;
             $group->addItem(trans('galleries::global.name'), function (SidebarItem $item) {
+                $item->id = 'galleries';
                 $item->icon = config('typicms.galleries.sidebar.icon', 'icon fa fa-fw fa-photo');
                 $item->weight = config('typicms.galleries.sidebar.weight');
                 $item->route('admin::index-galleries');
