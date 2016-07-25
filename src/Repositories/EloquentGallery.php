@@ -21,7 +21,7 @@ class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
      */
     public function allRaw()
     {
-        $query = $this->make(['translations'])
+        $query = $this->model
             ->select(
                 'id',
                 'name',
