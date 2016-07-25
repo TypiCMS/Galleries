@@ -42,7 +42,7 @@
                 <tr ng-repeat="model in displayedModels">
                     <td typi-btn-delete action="delete(model, model.file)"></td>
                     <td>
-                        <a class="btn btn-default btn-xs" href="../../files/@{{ model.id }}/edit">Edit</a>
+                        <a class="btn btn-default btn-xs" href="../../files/@{{ model.id }}/edit?redirect_to_gallery=1">Edit</a>
                     </td>
                     <td ng-switch="model.type">
                         <img ng-switch-when="i" ng-src="@{{ model.thumb_src }}" alt="@{{ model.alt_attribute }}">
