@@ -14,6 +14,26 @@ class CacheDecorator extends CacheAbstractDecorator implements GalleryInterface
     }
 
     /**
+     * Get all galleries with files_count for back end.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function allRaw()
+    {
+        $cacheKey = md5(config('app.locale').'allRaw');
+
+        if ($this->cache->has($cacheKey)) {
+            return $this->cache->get($cacheKey);
+        }
+
+        $models = $this->repo->allRaw();
+
+        $this->cache->put($cacheKey, $models);
+
+        return $models;
+    }
+
+    /**
      * Delete model and attached files.
      *
      * @return bool

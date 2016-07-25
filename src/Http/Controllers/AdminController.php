@@ -21,7 +21,7 @@ class AdminController extends BaseAdminController
      */
     public function index()
     {
-        $models = $this->repository->all([], true);
+        $models = $this->repository->allRaw();
         app('JavaScript')->put('models', $models);
 
         return view('galleries::admin.index');

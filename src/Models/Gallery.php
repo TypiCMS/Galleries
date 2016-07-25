@@ -39,7 +39,7 @@ class Gallery extends Base
         'body',
     ];
 
-    protected $appends = ['status', 'title', 'files_count', 'thumb'];
+    protected $appends = ['status', 'title', 'thumb'];
 
     /**
      * Columns that are file.
@@ -108,15 +108,5 @@ class Gallery extends Base
     public function getThumbAttribute()
     {
         return $this->present()->thumbSrc(null, 22);
-    }
-
-    /**
-     * Append files_count attribute.
-     *
-     * @return string
-     */
-    public function getFilesCountAttribute()
-    {
-        return $this->files->count();
     }
 }
