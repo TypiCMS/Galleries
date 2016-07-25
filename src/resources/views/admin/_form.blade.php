@@ -6,10 +6,6 @@
 
 {!! BootForm::hidden('id') !!}
 
-@include('core::admin._image-fieldset', ['field' => 'image'])
-
-{!! BootForm::text(trans('validation.attributes.name'), 'name') !!}
-
 <ul class="nav nav-tabs">
     <li class="@if (Request::input('tab') != 'tab-files')active @endif">
         <a href="#tab-main" data-target="#tab-main" data-toggle="tab">@lang('global.Content')</a>
@@ -22,7 +18,11 @@
 <div class="tab-content">
 
     {{-- Main tab --}}
-    <div class="tab-pane fade in @if (Request::input('tab') != 'tab-files')active @endif" id="tab-main">
+    <div class="tab-pane fade in @if(Request::input('tab') != 'tab-files')active @endif" id="tab-main">
+
+        @include('core::admin._image-fieldset', ['field' => 'image'])
+
+        {!! BootForm::text(trans('validation.attributes.name'), 'name') !!}
 
         @include('core::form._title-and-slug')
         {!! TranslatableBootForm::hidden('status')->value(0) !!}
@@ -33,7 +33,7 @@
     </div>
 
     {{-- Galleries tab --}}
-    <div class="tab-pane fade in @if (Request::input('tab') == 'tab-files')active @endif" id="tab-files">
+    <div class="tab-pane fade in @if(Request::input('tab') == 'tab-files')active @endif" id="tab-files">
 
         @if ($model->id)
             @include('galleries::admin.files')
