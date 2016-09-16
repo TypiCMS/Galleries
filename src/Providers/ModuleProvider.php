@@ -8,9 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use TypiCMS\Modules\Core\Facades\TypiCMS;
 use TypiCMS\Modules\Core\Observers\FileObserver;
 use TypiCMS\Modules\Core\Observers\SlugObserver;
-use TypiCMS\Modules\Core\Services\Cache\LaravelCache;
 use TypiCMS\Modules\Galleries\Models\Gallery;
-use TypiCMS\Modules\Galleries\Repositories\CacheDecorator;
 use TypiCMS\Modules\Galleries\Repositories\EloquentGallery;
 
 class ModuleProvider extends ServiceProvider
@@ -65,14 +63,6 @@ class ModuleProvider extends ServiceProvider
             $view->page = TypiCMS::getPageLinkedToModule('galleries');
         });
 
-        $app->bind('TypiCMS\Modules\Galleries\Repositories\GalleryInterface', function (Application $app) {
-            $repository = new EloquentGallery(new Gallery());
-            if (!config('typicms.cache')) {
-                return $repository;
-            }
-            $laravelCache = new LaravelCache($app['cache'], ['galleries', 'files'], 10);
-
-            return new CacheDecorator($repository, $laravelCache);
-        });
+        $app->bind('Galleries', EloquentGallery::class);
     }
 }

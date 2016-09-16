@@ -2,17 +2,15 @@
 
 namespace TypiCMS\Modules\Galleries\Repositories;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use TypiCMS\Modules\Core\Repositories\RepositoriesAbstract;
 use TypiCMS\Modules\Files\Models\File;
+use TypiCMS\Modules\Galleries\Models\Gallery;
 
-class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
+class EloquentGallery extends EloquentRepository
 {
-    public function __construct(Model $model)
-    {
-        $this->model = $model;
-    }
+    protected $repositoryId = 'galleries';
+
+    protected $model = Gallery::class;
 
     /**
      * Get all galleries with files_count for back end.

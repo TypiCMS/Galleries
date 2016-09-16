@@ -5,7 +5,7 @@ namespace TypiCMS\Modules\Galleries\Http\Controllers;
 use Illuminate\Support\Facades\Request;
 use TypiCMS\Modules\Core\Http\Controllers\BaseApiController;
 use TypiCMS\Modules\Galleries\Models\Gallery;
-use TypiCMS\Modules\Galleries\Repositories\GalleryInterface as Repository;
+use TypiCMS\Modules\Galleries\Repositories\EloquentGallery as Repository;
 
 class ApiController extends BaseApiController
 {

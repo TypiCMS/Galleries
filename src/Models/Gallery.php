@@ -15,7 +15,7 @@ class Gallery extends Base
 
     protected $presenter = 'TypiCMS\Modules\Galleries\Presenters\ModulePresenter';
 
-    protected $guarded = ['id'];
+    protected $guarded = ['id', 'exit'];
 
     public $translatable = [
         'title',
@@ -48,7 +48,7 @@ class Gallery extends Base
      */
     public function news()
     {
-        return $this->morphedByMany('TypiCMS\Modules\News\Models\News');
+        return $this->morphedByMany('TypiCMS\Modules\News\News');
     }
 
     /**

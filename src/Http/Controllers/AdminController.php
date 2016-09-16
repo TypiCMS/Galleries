@@ -5,11 +5,11 @@ namespace TypiCMS\Modules\Galleries\Http\Controllers;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
 use TypiCMS\Modules\Galleries\Http\Requests\FormRequest;
 use TypiCMS\Modules\Galleries\Models\Gallery;
-use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
+use TypiCMS\Modules\Galleries\Repositories\EloquentGallery;
 
 class AdminController extends BaseAdminController
 {
-    public function __construct(GalleryInterface $gallery)
+    public function __construct(EloquentGallery $gallery)
     {
         parent::__construct($gallery);
     }

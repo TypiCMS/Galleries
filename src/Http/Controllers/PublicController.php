@@ -6,11 +6,11 @@ use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Support\Facades\Request;
 use TypiCMS;
 use TypiCMS\Modules\Core\Http\Controllers\BasePublicController;
-use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
+use TypiCMS\Modules\Galleries\Repositories\EloquentGallery;
 
 class PublicController extends BasePublicController
 {
-    public function __construct(GalleryInterface $gallery)
+    public function __construct(EloquentGallery $gallery)
     {
         parent::__construct($gallery);
     }
