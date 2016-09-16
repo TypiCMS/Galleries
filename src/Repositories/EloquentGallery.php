@@ -3,6 +3,7 @@
 namespace TypiCMS\Modules\Galleries\Repositories;
 
 use Illuminate\Support\Facades\DB;
+use TypiCMS\Modules\Core\EloquentRepository;
 use TypiCMS\Modules\Files\Models\File;
 use TypiCMS\Modules\Galleries\Models\Gallery;
 
