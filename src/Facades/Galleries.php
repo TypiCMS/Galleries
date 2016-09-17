@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Galleries\Facades;
 
-use Illuminate\Support\Facades\Facade as MainFacade;
+use Illuminate\Support\Facades\Facade;
 
-class Facade extends MainFacade
+class Galleries extends Facade
 {
     /**
      * Get the registered name of the component.
