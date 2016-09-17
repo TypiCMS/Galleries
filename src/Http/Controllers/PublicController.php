@@ -24,8 +24,7 @@ class PublicController extends BasePublicController
     {
         $page = Request::input('page');
         $perPage = config('typicms.galleries.per_page');
-        $data = $this->repository->byPage($page, $perPage);
-        $models = new Paginator($data->items, $data->totalItems, $perPage, null, ['path' => Paginator::resolveCurrentPath()]);
+        $models = $this->repository->paginate($perPage, ['*'], 'page', $page);
 
         return view('galleries::public.index')
             ->with(compact('models'));
