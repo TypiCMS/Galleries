@@ -43,7 +43,7 @@ class RouteServiceProvider extends ServiceProvider
             /*
              * Admin routes
              */
-            $router->group(['middleware' => 'admin', 'prefix' => 'admin'], function(Router $router) {
+            $router->group(['middleware' => 'admin', 'prefix' => 'admin'], function (Router $router) {
                 $router->get('galleries', 'AdminController@index')->name('admin::index-galleries');
                 $router->get('galleries/create', 'AdminController@create')->name('admin::create-gallery');
                 $router->get('galleries/{gallery}/edit', 'AdminController@edit')->name('admin::edit-gallery');
@@ -54,7 +54,7 @@ class RouteServiceProvider extends ServiceProvider
             /*
              * API routes
              */
-            $router->group(['middleware' => 'api', 'prefix' => 'api'], function(Router $router) {
+            $router->group(['middleware' => 'api', 'prefix' => 'api'], function (Router $router) {
                 $router->get('galleries', 'ApiController@index')->name('api::index-galleries');
                 $router->put('galleries/{gallery}', 'ApiController@update')->name('api::update-gallery');
                 $router->delete('galleries/{gallery}', 'ApiController@destroy')->name('api::destroy-gallery');
