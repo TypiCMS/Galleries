@@ -20,7 +20,7 @@ class EloquentGallery extends EloquentRepository
      */
     public function allRaw()
     {
-        $query = $this->model
+        $query = $this->createModel()
             ->select(
                 'id',
                 'name',
