@@ -49,7 +49,7 @@ class EloquentGallery extends EloquentRepository
                 $file->delete();
             });
         }
-        if ($model->delete()) {
+        if ($this->delete($model)) {
             return true;
         }
 

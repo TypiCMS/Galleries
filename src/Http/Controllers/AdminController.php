@@ -77,8 +77,24 @@ class AdminController extends BaseAdminController
      */
     public function update(Gallery $gallery, FormRequest $request)
     {
-        $this->repository->update(request('id'), $request->all());
+        $this->repository->update($request->id, $request->all());
 
         return $this->redirect($request, $gallery);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param \TypiCMS\Modules\Galleries\Models\Gallery $gallery
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(Gallery $gallery)
+    {
+        $deleted = $this->repository->delete($gallery);
+
+        return response()->json([
+            'error' => !$deleted,
+        ]);
     }
 }
