@@ -18,12 +18,6 @@ class Gallery extends Base
     protected $fillable = [
         'name',
         'image',
-        // Translatable columns
-        'title',
-        'slug',
-        'status',
-        'summary',
-        'body',
     ];
 
     /**
@@ -85,9 +79,9 @@ class Gallery extends Base
      *
      * @return string
      */
-    public function getStatusAttribute()
+    public function getStatusAttribute($value)
     {
-        return $this->status;
+        return $value;
     }
 
     /**
@@ -95,9 +89,9 @@ class Gallery extends Base
      *
      * @return string title
      */
-    public function getTitleAttribute()
+    public function getTitleAttribute($value)
     {
-        return $this->title;
+        return $value;
     }
 
     /**
