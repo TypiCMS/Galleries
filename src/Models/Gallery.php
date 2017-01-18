@@ -5,7 +5,10 @@ namespace TypiCMS\Modules\Galleries\Models;
 use Laracasts\Presenter\PresentableTrait;
 use Spatie\Translatable\HasTranslations;
 use TypiCMS\Modules\Core\Models\Base;
+use TypiCMS\Modules\Files\Models\File;
 use TypiCMS\Modules\History\Traits\Historable;
+use TypiCMS\Modules\News\Models\News;
+use TypiCMS\Modules\Pages\Models\Page;
 
 class Gallery extends Base
 {
@@ -38,7 +41,7 @@ class Gallery extends Base
      */
     public function files()
     {
-        return $this->hasMany('TypiCMS\Modules\Files\Models\File')->order();
+        return $this->hasMany(File::class)->order();
     }
 
     /**
@@ -48,7 +51,7 @@ class Gallery extends Base
      */
     public function news()
     {
-        return $this->morphedByMany('TypiCMS\Modules\News\News');
+        return $this->morphedByMany(News::class);
     }
 
     /**
@@ -58,7 +61,7 @@ class Gallery extends Base
      */
     public function pages()
     {
-        return $this->morphedByMany('TypiCMS\Modules\Pages\Models\Page');
+        return $this->morphedByMany(Page::class);
     }
 
     /**
