@@ -22,13 +22,13 @@
 
         @include('core::admin._image-fieldset', ['field' => 'image'])
 
-        {!! BootForm::text(trans('validation.attributes.name'), 'name') !!}
+        {!! BootForm::text(__('validation.attributes.name'), 'name') !!}
 
         @include('core::form._title-and-slug')
         {!! TranslatableBootForm::hidden('status')->value(0) !!}
-        {!! TranslatableBootForm::checkbox(trans('validation.attributes.online'), 'status') !!}
-        {!! TranslatableBootForm::textarea(trans('validation.attributes.summary'), 'summary')->rows(4) !!}
-        {!! TranslatableBootForm::textarea(trans('validation.attributes.body'), 'body')->addClass('ckeditor') !!}
+        {!! TranslatableBootForm::checkbox(__('validation.attributes.online'), 'status') !!}
+        {!! TranslatableBootForm::textarea(__('validation.attributes.summary'), 'summary')->rows(4) !!}
+        {!! TranslatableBootForm::textarea(__('validation.attributes.body'), 'body')->addClass('ckeditor') !!}
 
     </div>
 
