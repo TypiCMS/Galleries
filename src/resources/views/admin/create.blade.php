@@ -2,7 +2,7 @@
 
 @section('title', __('galleries::global.New'))
 
-@section('main')
+@section('content')
 
     @include('core::admin._button-back', ['module' => 'galleries'])
     <h1>
