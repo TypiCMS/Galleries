@@ -10,8 +10,8 @@ class FormRequest extends AbstractFormRequest
     {
         return [
             'name' => 'required|max:255|alpha_dash',
-            'title.*' => 'max:255',
-            'slug.*' => 'alpha_dash|max:255',
+            'title.*' => 'nullable|max:255',
+            'slug.*' => 'nullable|alpha_dash|max:255',
         ];
     }
 }
