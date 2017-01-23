@@ -12,10 +12,10 @@
 
     @include('galleries::public._slider')
 
-    <article>
-        <h1>{{ $model->title }}</h1>
-        <p class="summary">{{ nl2br($model->summary) }}</p>
-        <div class="body">{!! $model->present()->body !!}</div>
+    <article class="gallery">
+        <h1 class="gallery-title">{{ $model->title }}</h1>
+        <p class="gallery-summary">{{ nl2br($model->summary) }}</p>
+        <div class="gallery-body">{!! $model->present()->body !!}</div>
     </article>
 
     @include('galleries::public._thumbs')
