@@ -7,6 +7,8 @@ use Illuminate\Support\ServiceProvider;
 use TypiCMS\Modules\Core\Facades\TypiCMS;
 use TypiCMS\Modules\Core\Observers\FileObserver;
 use TypiCMS\Modules\Core\Observers\SlugObserver;
+use TypiCMS\Modules\Galleries\Composers\SidebarViewComposer;
+use TypiCMS\Modules\Galleries\Facades\Galleries;
 use TypiCMS\Modules\Galleries\Models\Gallery;
 use TypiCMS\Modules\Galleries\Repositories\EloquentGallery;
 
@@ -31,10 +33,7 @@ class ModuleProvider extends ServiceProvider
             __DIR__.'/../database' => base_path('database'),
         ], 'migrations');
 
-        AliasLoader::getInstance()->alias(
-            'Galleries',
-            'TypiCMS\Modules\Galleries\Facades\Galleries'
-        );
+        AliasLoader::getInstance()->alias('Galleries', Galleries::class);
 
         // Observers
         Gallery::observe(new SlugObserver());
@@ -48,12 +47,12 @@ class ModuleProvider extends ServiceProvider
         /*
          * Register route service provider
          */
-        $app->register('TypiCMS\Modules\Galleries\Providers\RouteServiceProvider');
+        $app->register(RouteServiceProvider::class);
 
         /*
          * Sidebar view composer
          */
-        $app->view->composer('core::admin._sidebar', 'TypiCMS\Modules\Galleries\Composers\SidebarViewComposer');
+        $app->view->composer('core::admin._sidebar', SidebarViewComposer::class);
 
         /*
          * Add the page in the view.
