@@ -23,6 +23,8 @@ class EloquentGallery extends EloquentRepository
         $query = $this->createModel()
             ->select(
                 'id',
+                'status',
+                'title',
                 'name',
                 'image',
                 DB::raw('(SELECT COUNT(*) FROM `'.

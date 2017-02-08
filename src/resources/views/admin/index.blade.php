@@ -50,7 +50,7 @@
                         <img ng-src="@{{ model.thumb }}" alt="">
                     </td>
                     <td>@{{ model.name }}</td>
-                    <td>@{{ model.title }}</td>
+                    <td>@{{ model.title | translated }}</td>
                     <td typi-btn-files model="model"></td>
                 </tr>
             </tbody>
