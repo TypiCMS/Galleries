@@ -28,7 +28,7 @@ class Gallery extends Base
         'body',
     ];
 
-    protected $appends = ['thumb'];
+    protected $appends = ['thumb', 'title_translated'];
 
     public $attachments = [
         'image',
@@ -62,6 +62,17 @@ class Gallery extends Base
     public function pages()
     {
         return $this->morphedByMany(Page::class);
+    }
+
+    /**
+     * Append title_translated attribute.
+     *
+     * @return string
+     */
+    public function getTitleTranslatedAttribute()
+    {
+        $locale = config('app.locale');
+        return $this->translate('title', config('typicms.content_locale', $locale));
     }
 
     /**
