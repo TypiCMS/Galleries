@@ -52,7 +52,7 @@
                         <input class="form-control input-sm" min="0" type="number" name="position" ng-model="model.position" ng-change="update(model)">
                     </td>
                     <td>@{{ model.file }}</td>
-                    <td>@{{ model.alt_attribute }}</td>
+                    <td>@{{ model.alt_attribute_translated }}</td>
                     <td>@{{ model.width }}</td>
                     <td>@{{ model.height }}</td>
                 </tr>
