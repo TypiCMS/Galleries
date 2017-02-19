@@ -7,10 +7,10 @@
 {!! BootForm::hidden('id') !!}
 
 <ul class="nav nav-tabs">
-    <li class="@if (Request::input('tab') != 'tab-files')active @endif">
+    <li class="@if (request('tab') != 'tab-files')active @endif">
         <a href="#tab-main" data-target="#tab-main" data-toggle="tab">@lang('Content')</a>
     </li>
-    <li class="@if (Request::input('tab') == 'tab-files')active @endif">
+    <li class="@if (request('tab') == 'tab-files')active @endif">
         <a href="#tab-files" data-target="#tab-files" data-toggle="tab">@lang('Files')</a>
     </li>
 </ul>
@@ -18,7 +18,7 @@
 <div class="tab-content">
 
     {{-- Main tab --}}
-    <div class="tab-pane fade in @if(Request::input('tab') != 'tab-files')active @endif" id="tab-main">
+    <div class="tab-pane fade in @if(request('tab') != 'tab-files')active @endif" id="tab-main">
 
         @include('core::admin._image-fieldset', ['field' => 'image'])
 
@@ -33,7 +33,7 @@
     </div>
 
     {{-- Galleries tab --}}
-    <div class="tab-pane fade in @if(Request::input('tab') == 'tab-files')active @endif" id="tab-files">
+    <div class="tab-pane fade in @if(request('tab') == 'tab-files')active @endif" id="tab-files">
 
         @if ($model->id)
             @include('galleries::admin.files')

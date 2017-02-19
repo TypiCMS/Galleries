@@ -2,7 +2,6 @@
 
 namespace TypiCMS\Modules\Galleries\Http\Controllers;
 
-use Illuminate\Support\Facades\Request;
 use TypiCMS;
 use TypiCMS\Modules\Core\Http\Controllers\BasePublicController;
 use TypiCMS\Modules\Galleries\Repositories\EloquentGallery;
@@ -21,7 +20,7 @@ class PublicController extends BasePublicController
      */
     public function index()
     {
-        $page = Request::input('page');
+        $page = request('page');
         $perPage = config('typicms.galleries.per_page');
         $models = $this->repository->published()->paginate($perPage, ['*'], 'page', $page);
 
