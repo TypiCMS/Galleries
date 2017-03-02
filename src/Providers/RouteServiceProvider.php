@@ -49,8 +49,8 @@ class RouteServiceProvider extends ServiceProvider
                 $router->get('galleries/{gallery}/edit', 'AdminController@edit')->name('admin::edit-gallery');
                 $router->post('galleries', 'AdminController@store')->name('admin::store-gallery');
                 $router->put('galleries/{gallery}', 'AdminController@update')->name('admin::update-gallery');
-                $router->patch('galleries/{gallery}', 'AdminController@ajaxUpdate');
-                $router->delete('galleries/{gallery}', 'AdminController@destroy')->name('admin::destroy-gallery');
+                $router->patch('galleries/{ids}', 'AdminController@ajaxUpdate')->name('admin::update-gallery');
+                $router->delete('galleries/{ids}', 'AdminController@destroyMultiple')->name('admin::destroy-gallery');
             });
         });
     }
