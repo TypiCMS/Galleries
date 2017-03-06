@@ -37,11 +37,11 @@ class Gallery extends Base
     /**
      * One gallery has many files.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function files()
     {
-        return $this->hasMany(File::class)->order();
+        return $this->belongsToMany(File::class)->order();
     }
 
     /**
