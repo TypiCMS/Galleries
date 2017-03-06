@@ -2,7 +2,11 @@
     <script src="{{ asset('components/ckeditor/ckeditor.js') }}"></script>
 @endsection
 
-@include('core::admin._buttons-form')
+@component('core::admin._buttons-form', ['model' => $model])
+    @if ($model->id)
+    <button class="btn btn-success" type="submit">{{ __('Add files') }}</button>
+    @endif
+@endcomponent
 
 {!! BootForm::hidden('id') !!}
 
