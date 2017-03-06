@@ -6,6 +6,7 @@ use Laracasts\Presenter\PresentableTrait;
 use Spatie\Translatable\HasTranslations;
 use TypiCMS\Modules\Core\Models\Base;
 use TypiCMS\Modules\Files\Models\File;
+use TypiCMS\Modules\Galleries\Presenters\ModulePresenter;
 use TypiCMS\Modules\History\Traits\Historable;
 use TypiCMS\Modules\News\Models\News;
 use TypiCMS\Modules\Pages\Models\Page;
@@ -16,7 +17,7 @@ class Gallery extends Base
     use Historable;
     use PresentableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\Galleries\Presenters\ModulePresenter';
+    protected $presenter = ModulePresenter::class;
 
     protected $guarded = ['id', 'exit'];
 
