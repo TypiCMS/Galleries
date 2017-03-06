@@ -28,6 +28,16 @@ class AdminController extends BaseAdminController
     }
 
     /**
+     * List models.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function files(Gallery $gallery)
+    {
+        return $gallery->files;
+    }
+
+    /**
      * Create form for a new resource.
      *
      * @return \Illuminate\View\View
