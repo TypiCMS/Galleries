@@ -29,7 +29,7 @@ class Gallery extends Base
         'body',
     ];
 
-    protected $appends = ['thumb', 'title_translated'];
+    protected $appends = ['thumb', 'title_translated', 'files_count'];
 
     public $attachments = [
         'image',
@@ -74,6 +74,16 @@ class Gallery extends Base
     {
         $locale = config('app.locale');
         return $this->translate('title', config('typicms.content_locale', $locale));
+    }
+
+    /**
+     * Append title_translated attribute.
+     *
+     * @return string
+     */
+    public function getFilesCountAttribute()
+    {
+        return $this->files->count();
     }
 
     /**

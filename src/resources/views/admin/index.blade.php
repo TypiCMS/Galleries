@@ -56,7 +56,9 @@
                     </td>
                     <td>@{{ model.name }}</td>
                     <td>@{{ model.title_translated }}</td>
-                    <td typi-btn-files model="model"></td>
+                    <td>
+                        <span class="label label-default" ng-class="model.files_count ? 'label-success' : ''">@{{ model.files_count }}</span>
+                    </td>
                 </tr>
             </tbody>
             <tfoot>
