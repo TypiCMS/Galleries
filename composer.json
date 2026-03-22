@@ -1,6 +1,7 @@
 {
     "name": "typicms/galleries",
-    "description": "",
+    "description": "DEPRECATED - This package is no longer maintained.",
+    "abandoned": true,
     "license": "MIT",
     "authors": [
         {
